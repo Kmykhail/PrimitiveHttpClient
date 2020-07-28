@@ -15,9 +15,9 @@ using namespace std;
 
 // get +
 // timeout +
+// user-agent +
 
 // TODO:
-// * user-agent
 // * http status code
 // * redirect url
 
@@ -29,6 +29,7 @@ public:
     bool get(const string &url, string &res);
 
     void setTimeOut(uint32_t timeout) {_timeout = timeout;}
+    void setUserAgent(const string &user_agent) {_user_agent = user_agent;}
 
 private:
     static size_t _writeCallback(void *contents, size_t size, size_t nmemb, void *userp);
@@ -39,6 +40,8 @@ private:
     CURL *_curl {nullptr};
 
     uint32_t _timeout {0};
+
+    string  _user_agent;
 };
 
 

@@ -15,12 +15,15 @@ PrimitiveHttpClient::~PrimitiveHttpClient() {
 
 void PrimitiveHttpClient::_activateSettings() {
 
-    if (_timeout)
-    {
+    if (_timeout) {
         curl_easy_setopt(_curl, CURLOPT_TIMEOUT_MS, 0);
         curl_easy_setopt(_curl, CURLOPT_CONNECTTIMEOUT_MS, 0);
         curl_easy_setopt(_curl, CURLOPT_TIMEOUT , _timeout);
         curl_easy_setopt(_curl, CURLOPT_CONNECTTIMEOUT , _timeout);
+    }
+
+    if (!_user_agent.empty()) {
+        curl_easy_setopt(_curl, CURLOPT_USERAGENT, _user_agent.c_str());
     }
 }
 

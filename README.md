@@ -8,4 +8,6 @@ mkdir build
 cd build
 cmake ..
 make
+
+./PrimitiveHttpClient
 ```
